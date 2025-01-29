@@ -7,7 +7,7 @@ int	open_file(char *file, int read_write)
 	if (read_write == 0)
 		fd = open(file, O_RDONLY, 0777);
 	else if (read_write == 1)
-		fd = open(file, O_WRONLY, 0777);
+		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
 	if (fd == -1)
 		exit_error(4);
 	return (fd);
@@ -31,7 +31,7 @@ void	exit_error(int error)
 	if (error == 1)
 	{
 		ft_puterror("Error 1:\n Format error: ./pipex file1 \"cmd1\" \"cmd2\" file2\n");
-		exit (-1);
+		exit (1);
 	}
 	else if (error == 2)
 	{
@@ -47,6 +47,11 @@ void	exit_error(int error)
 	{
 		ft_puterror("Error 4:\n Failed to open file\n");
 		exit (-1);
+	}
+	else if (error == 5)
+	{
+		ft_puterror("Error 5:\n Command not found\n");
+		exit (127);
 	}
 	exit(0);
 }

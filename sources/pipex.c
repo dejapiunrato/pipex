@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:09:40 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/29 18:29:34 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/29 19:09:00 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	execute(char *cmd, char **envp)
 	}
 	free_array(args);
 	free_array(path);
+	exit_error(5);
 }
 
 void	create_child(char **argv, int *pipe_fd, char **envp)
