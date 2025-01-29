@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:09:40 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/29 19:09:00 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:40:04 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int argc, char **argv, char **envp)
 		exit_error(1);
 	if (pipe(pipe_fd) == -1)
 		exit_error(2);
-	pid =  fork();
+	pid = fork();
 	if (pid == -1)
 		exit_error(3);
 	if (!pid)

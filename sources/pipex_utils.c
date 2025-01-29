@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipex_utils.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/29 23:40:11 by psevilla          #+#    #+#             */
+/*   Updated: 2025/01/29 23:41:58 by psevilla         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "pipex.h"
 
 int	open_file(char *file, int read_write)
@@ -18,19 +30,18 @@ void	ft_puterror(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		write(2, &str[i], 1);
 		i++;
 	}
-
 }
 
 void	exit_error(int error)
 {
 	if (error == 1)
 	{
-		ft_puterror("Error 1:\n Format error: ./pipex file1 \"cmd1\" \"cmd2\" file2\n");
+		ft_puterror("Error 1:\n Format error: ./pipex file1 cmd1 cmd2 file2\n");
 		exit (1);
 	}
 	else if (error == 2)
@@ -53,7 +64,6 @@ void	exit_error(int error)
 		ft_puterror("Error 5:\n Command not found\n");
 		exit (127);
 	}
-	exit(0);
 }
 
 void	free_array(char	**array)
@@ -61,7 +71,7 @@ void	free_array(char	**array)
 	int	i;
 
 	i = 0;
-	while(array[i])
+	while (array[i])
 	{
 		free(array[i]);
 		i++;
