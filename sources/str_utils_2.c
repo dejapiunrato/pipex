@@ -6,35 +6,11 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:09:47 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/29 17:58:32 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/29 23:43:40 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-
-char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	size_t	i;
-	char	*sub;
-
-	if (!s)
-		return (NULL);
-	if ((int)start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (ft_strlen(s) - start < len)
-		len = ft_strlen(s) - start;
-	sub = (char *)malloc(sizeof(char) * (len + 1));
-	if (sub == NULL)
-		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		sub[i] = s[start + i];
-		i++;
-	}
-	sub[i] = '\0';
-	return (sub);
-}
 
 int	ft_strlen(const char *s)
 {
