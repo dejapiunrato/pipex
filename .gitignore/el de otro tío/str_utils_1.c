@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:09:44 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/29 18:11:52 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:54:58 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,4 +101,9 @@ char	**ft_split(char const *s, char c)
 			i++;
 	}
 	return (str);
+}
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
 }

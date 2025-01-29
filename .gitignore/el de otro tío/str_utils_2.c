@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:09:47 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/29 17:58:32 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/29 17:56:09 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,4 +94,48 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		str[i++] = *s2++;
 	str[i] = '\0';
 	return (str);
+}
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd (s[i], fd);
+		i++;
+	}
+}
+
+void	ft_putendl_fd(char *s, int fd)
+{
+	int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		ft_putchar_fd (s[i], fd);
+		i++;
+	}
+	ft_putchar_fd ('\n', fd);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	size_t	i;
+
+	i = 0;
+	if (!s1)
+		return (1);
+	while (s1[i] || s2[i])
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
+	return (0);
 }
