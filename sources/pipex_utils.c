@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 23:40:11 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/30 16:10:11 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/30 19:54:36 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,14 @@ void	exit_error(int error)
 	else if (error == 4)
 	{
 		ft_puterror("Error 4:\n Failed to open file\n");
-		exit (-1);
+		exit (0);
 	}
 	else if (error == 5)
 	{
 		ft_puterror("Error 5:\n Command not found\n");
 		exit (127);
 	}
+	exit (127);
 }
 
 void	free_array(char	**array)
