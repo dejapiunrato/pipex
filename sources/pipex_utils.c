@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 23:40:11 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/29 23:41:58 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:10:11 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	open_file(char *file, int read_write)
 {
 	int	fd;
 
+	fd = 0;
 	if (read_write == 0)
 		fd = open(file, O_RDONLY, 0777);
 	else if (read_write == 1)
@@ -87,6 +88,7 @@ char	**get_path(char **envp)
 	char	*tmp;
 
 	i = 0;
+	path = NULL;
 	while (envp[i++])
 	{
 		if (ft_strncmp(envp[i], "PATH=", 5) == 0)
@@ -97,13 +99,12 @@ char	**get_path(char **envp)
 	}
 	dir = ft_split(path, ':');
 	free(path);
-	i = 0;
-	while (dir[i])
+	i = -1;
+	while (dir[++i])
 	{
 		tmp = ft_strjoin(dir[i], "/");
 		free(dir[i]);
 		dir[i] = tmp;
-		i++;
 	}
 	return (dir);
 }

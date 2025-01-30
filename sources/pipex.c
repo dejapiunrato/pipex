@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:09:40 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/29 23:40:04 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:02:44 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ void	execute(char *cmd, char **envp)
 	char	*tmp;
 
 	args = ft_split(cmd, ' ');
+	if (!args[0])
+	{
+		free_array(args);
+		exit_error(1);
+	}
 	path = get_path(envp);
 	i = 0;
 	while (path[i])
