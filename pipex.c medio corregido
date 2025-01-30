@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pipex.c                                            :+:      :+:    :+:   */
+/*   pipex.c medio corregido                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:09:40 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/30 21:05:01 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/01/30 20:55:54 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,17 +90,17 @@ int	main(int argc, char **argv, char **envp)
 
 	if (argc != 5)
 		exit_error(1);
-	if (pipe(pipe_fd) < 0)
+	if (pipe(pipe_fd) == -1)
 		exit_error(2);
 	pid[0] = fork();
-	if (pid[0] < 0)
-		exit_error(3);
+	if (pid[0] == -1)
+		exit_error(0);		
 	if (!pid[0])
 		create_child(argv, pipe_fd, envp);
 	close(pipe_fd[1]);
 	pid[1] = fork();
-	if (pid[1] < 0)
-		exit_error(3);
+	if (pid[1] == -1)
+		exit_error(0);
 	if (!pid[1])
 		create_parent(argv, pipe_fd, envp);
 	close(pipe_fd[0]);
