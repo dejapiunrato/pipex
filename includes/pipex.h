@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: psevilla <psevilla@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:09:37 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/29 23:43:45 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/02/05 00:05:51 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,18 @@
 # include <string.h>     // strerror
 # include <stdio.h>      // perror
 # include <sys/wait.h>   // wait, waitpid
+# include <errno.h>
+
+typedef struct s_pipex
+{
+	pid_t	pid[2];
+	int		pipe_fd[2];
+	int		status;
+	int		exit_code;
+}	t_pipex;
 
 //Funciones en pipex_utils.c
 int		open_file(char *file, int read_write);
-void	exit_error(int error);
 void	free_array(char	**array);
 char	**get_path(char **envp);
 

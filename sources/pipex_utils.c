@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 23:40:11 by psevilla          #+#    #+#             */
-/*   Updated: 2025/01/30 20:58:49 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/02/05 00:06:08 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,50 +21,12 @@ int	open_file(char *file, int read_write)
 		fd = open(file, O_RDONLY, 0777);
 	else if (read_write == 1)
 		fd = open(file, O_WRONLY | O_CREAT | O_TRUNC, 0777);
-	if (fd == -1)
-		exit_error(4);
+	if (fd < 0)
+	{
+		perror(NULL);
+		exit(EXIT_FAILURE);
+	}
 	return (fd);
-}
-
-void	ft_puterror(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		write(2, &str[i], 1);
-		i++;
-	}
-}
-
-void	exit_error(int error)
-{
-	if (error == 1)
-	{
-		ft_puterror("Error 1:\n Format error: ./pipex file1 cmd1 cmd2 file2\n");
-		exit (1);
-	}
-	else if (error == 2)
-	{
-		ft_puterror("Error 2:\n Failed to create pipe\n");
-		exit (-1);
-	}
-	else if (error == 3)
-	{
-		ft_puterror("Error 3:\n Failed to create fork\n");
-		exit (-1);
-	}
-	else if (error == 4)
-	{
-		ft_puterror("Error 4:\n Failed to open file\n");
-		exit (-1);
-	}
-	else if (error == 5)
-	{
-		ft_puterror("Error 5:\n Command not found\n");
-		exit (127);
-	}
 }
 
 void	free_array(char	**array)
