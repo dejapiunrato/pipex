@@ -6,7 +6,7 @@
 /*   By: psevilla <psevilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/29 17:09:37 by psevilla          #+#    #+#             */
-/*   Updated: 2025/02/05 00:05:51 by psevilla         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:28:34 by psevilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,10 @@
 
 # include <fcntl.h>      // open, access
 # include <unistd.h>     // close, read, write, pipe, dup, dup2, execve, fork
-# include <stdlib.h>     // malloc, free, exit
+# include <stdlib.h>     // malloc, free, exit, EXIT_FAILURE
 # include <string.h>     // strerror
 # include <stdio.h>      // perror
 # include <sys/wait.h>   // wait, waitpid
-# include <errno.h>
 
 typedef struct s_pipex
 {
